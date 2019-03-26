@@ -15,7 +15,10 @@ for ping in range(from_host, to_host):
     address = ip.split('.')[0]+"."+ip.split('.')[1]+"."+ip.split('.')[2]+"." + str(ping)
     res = subprocess.call(['ping', '-I', interface, '-c', thread, address], stdout=FNULL, stderr=subprocess.STDOUT)
     if res == 0: 
-        print( "ping to", address, "OK") 
+        print( "ping to", address, "OK")
+        mac = os.popen("arping -c 1 -I wlp3s0 %s" %address)
+        MAC = mac.read()
+        print("MAC:",MAC.split(" ")[8][1:-1])
     elif res == 2: 
         print("no response from", address) 
     else: 
