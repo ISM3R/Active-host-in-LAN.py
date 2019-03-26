@@ -9,5 +9,4 @@ $ cd Active-host-in-LAN.py/
 $ chmod +x Active\ host\ in\ LAN.py
 
 $ ./Active\ host\ in\ LAN.py
-
 </pre>
